@@ -2,12 +2,10 @@
 @section('content')
 <style>
   .product-image-wrapper{
-  height: 45vh;
-   border: 1px dotted black;
+    height: 45vh;
+   border: 1px solid black;
    position: relative;
-   
-   width: 100%;
-   text-align: center;
+   border-radius: 10px;
  }   
  .single-products{
     height: 100%;
@@ -16,7 +14,6 @@
    }
    .single-products a{
     height: 100%;
-    width: 100%;
    }
     .productinfo.text-center{
         height: 100%; 
@@ -47,19 +44,13 @@ background-color: #26a69a;
 }   
 .btn.btn-default.add-to-cart{
     position: absolute;
-    left: 20%;
+    left: 12%;
 }
 
 .title.text-center{
     color: black;
     font-size: 150%;
 }
-.single-products img{
-  background-size: cover;
-}
- .single-products img :hover{
-  background-color: transparent;
- }
 
 </style>
 <div class="features_items"><!--features_items-->
@@ -86,11 +77,11 @@ background-color: #26a69a;
                                             <a class="image" href="{{URL::to('/chi-tiet/'.$product->product_slug)}}">
                                                 <img src="{{URL::to('public/uploads/product/'.$product->product_image)}}" alt="" />
                                                 <p style="color:red;font-weight: 700;">{{number_format($product->product_price,0,',','.').' '.'VNĐ'}}</p>
-                                                <h6 style="color:black;">{{$product->product_name}}</h6>
+                                                <h6>{{$product->product_name}}</h6>
 
                                              
                                              </a>
-                                            
+                                            <input style="display: block; border-radius: 10px; " type="button" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">
                                             </form>
 
                                         </div>
